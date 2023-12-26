@@ -1,0 +1,9 @@
+/* このcssは使ってません */
+
+.queryMenu {
+    width: 300px; /* または適切な幅を設定 */
+    margin-bottom: 10px; /* 必要に応じてマージンを調整 */
+    padding: 10px; /* 必要に応じてパディングを調整 */
+    border: 1px solid #ccc; /* 枠線を追加（任意） */
+    box-sizing: border-box; /* ボックスモデルをborder-boxに設定 */
+}
