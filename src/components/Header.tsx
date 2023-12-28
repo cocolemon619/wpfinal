@@ -39,10 +39,12 @@ const Header = ({ title }: HeaderProps) => {
     };
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 sticky top-0">
             <div className="flex-1">
                 <a className="btn btn-ghost text-xl">{title}</a>
             </div>
+            <input type="checkbox" value="halloween" className="toggle theme-controller" />
+
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-8">
                     <li>
