@@ -38,7 +38,7 @@ const LoginForm = () => {
                 document.cookie = `userMail=${user.mail};`;
 
                 // ログイン後のページに遷移
-                // window.location.replace("home")
+                window.location.replace("home")
             }
             console.log(user);
             console.log(user.id);

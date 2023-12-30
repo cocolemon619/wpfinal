@@ -34,6 +34,7 @@ const Header = ({ title }: HeaderProps) => {
     const deleteCookies = () => {
         document.cookie = 'userId=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
         document.cookie = 'userName=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        document.cookie = 'userMail=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
         setUserName(null);  // state も更新しておく
         router.reload();
     };
