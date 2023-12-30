@@ -40,7 +40,7 @@ const Find = () => {
             <button className="btn btn-primary m-1" onClick={handleButtonClick}>
                 Send
             </button>
-            {result && <p>id: {result.id}</p>}
+            {/* {result && <p>id: {result.id}</p>} */}
             {result && <p>pass: {result.password}</p>}
         </div>
     );
