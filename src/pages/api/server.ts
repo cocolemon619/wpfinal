@@ -10,13 +10,14 @@ export default async function handler(req, res) {
         try {
             const user = await prisma.user.findUnique({
                 where: {
-                    mail:email,
+                    mail: email,
                     password,
                 },
             });
 
             // res.status(201).json({ success: true, user });
             res.json(user);
+            console.log("hello!!!!")
             console.log(user);
         } catch (error) {
             console.error('ログインエラー:', error);

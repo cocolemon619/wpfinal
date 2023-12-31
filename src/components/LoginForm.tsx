@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PrismaClient } from '@prisma/client';
+import { error } from 'console';
 
 const prisma = new PrismaClient();
 
@@ -18,6 +19,7 @@ const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [result, setResult] = useState<UserData | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
     const handleButtonClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
@@ -40,12 +42,15 @@ const LoginForm = () => {
                 // ログイン後のページに遷移
                 window.location.replace("home")
             }
+            console.log("GoodNight!!!")
             console.log(user);
             console.log(user.id);
             console.log(result);
-
         } catch (error) {
+            console.log("New Year!!!")
+            setError('サーバーからデータの取得エラー: ' + error);
             console.error('サーバーからデータの取得エラー:', error);
+            console.log(error)
         }
     };
 
@@ -57,6 +62,7 @@ const LoginForm = () => {
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <form className="card-body">
                     {/* ... (既存のコード) */}
+                    {error && <p className="text-red-500">メールアドレス・パスワードが間違っています</p>} エラーがあれば表示
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">メール</span>
