@@ -54,6 +54,7 @@ const Header = ({ title }: HeaderProps) => {
                             </summary>
                             <ul className="p-2 bg-base-100 rounded-t-none">
                                 <li><Link href="/">HOME</Link></li>
+                                <li><Link href="/todo">ToDo</Link></li>
                                 <li><Link href="/login">LOGIN</Link></li>
                                 <li><button onClick={deleteCookies}>LOGOUT</button></li>
                             </ul>
