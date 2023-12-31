@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 
 import TodoForm from "@/components/Todo/TodoForm";
 import TodoItemList from "@/components/Todo/TodoItemList";
+import TodoListForm from "@/components/Todo/TodoListForm";
 import { TodoItemProps } from "@/components/Todo/TodoItem";
 
 const todoItemList: TodoItemProps[] = [
@@ -31,8 +32,7 @@ const todo = () => {
             <Header title="todo" />
             <div className="w-100 flex justify-center">
                 <div>                    
-                    <TodoItemList data={todoItemList} />
-                    <TodoForm />
+                    <TodoListForm />
                 </div>
             </div>
             <Footer />
