@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "@/components/Header";
-import TodoItem from "@/components/Todo/TodoItem";
 import Footer from "@/components/Footer";
 
-import TodoForm from "@/components/Todo/TodoForm";
-import TodoItemList from "@/components/Todo/TodoItemList";
 import TodoListForm from "@/components/Todo/TodoListForm";
 import { TodoItemProps } from "@/components/Todo/TodoItem";
 
@@ -30,8 +27,8 @@ const todo = () => {
     return (
         <div>
             <Header title="todo" />
-            <div className="w-100 flex justify-center">
-                <div>                    
+            <div className="">
+                <div className="my-5">                    
                     <TodoListForm />
                 </div>
             </div>

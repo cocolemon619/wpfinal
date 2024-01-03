@@ -34,8 +34,8 @@ const TodoForm = (props: TodoFormProps): JSX.Element => {
 
 	return (
 		<div className="w-100 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-			<p>{formTodo.title}</p>
-			<p>{formTodo.content}</p>
+			{/* <p>{formTodo.title}</p> */}{/* formTodoのtitleとcontentをデバッグする用 */}
+			{/* <p>{formTodo.content}</p> */}
 			<form onSubmit={(e) => e.preventDefault()}>
 				<div className="m-2">
 					<label className="text-gray-400">タイトル</label>
