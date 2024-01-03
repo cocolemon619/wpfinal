@@ -5,23 +5,24 @@ import Footer from "@/components/Footer";
 import TodoListForm from "@/components/Todo/TodoListForm";
 import { TodoItemProps } from "@/components/Todo/TodoItem";
 
-const todoItemList: TodoItemProps[] = [
-	{
-		title: "タイトル",
-		content: "TODO内容はここに記載します。",
-        status:"Done",
-	},
-	{
-		title: "タイトル2",
-		content: "TODO内容の二番目",
-        status:"Progress",
-	},
-	{
-		title: "タイトル3",
-		content: "TODO内容の3番目",
-        status:"Incomplete",
-	},
-];
+//使ってないから下のconst todoItemListはコメントアウトします
+// const todoItemList: TodoItemProps[] = [
+// 	{
+// 		title: "タイトル",
+// 		content: "TODO内容はここに記載します。",
+//         status:"Done",
+// 	},
+// 	{
+// 		title: "タイトル2",
+// 		content: "TODO内容の二番目",
+//         status:"Progress",
+// 	},
+// 	{
+// 		title: "タイトル3",
+// 		content: "TODO内容の3番目",
+//         status:"Incomplete",
+// 	},
+// ];
 
 const todo = () => {
     return (

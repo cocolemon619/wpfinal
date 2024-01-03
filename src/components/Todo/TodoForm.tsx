@@ -9,7 +9,7 @@ const TodoForm = (props: TodoFormProps): JSX.Element => {
 	const [formTodo, setFormTodo] = useState<TodoItemProps>({
 		title: "Hello",
 		content: "World",
-		status: "Done",
+		status: "Incomplete",
 	});
 
 	const handlerAddTodoOnclick = () => {

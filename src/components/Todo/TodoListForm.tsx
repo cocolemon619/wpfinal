@@ -5,21 +5,21 @@ import TodoForm from "@/components/Todo/TodoForm";
 
 const TodoListForm = (): JSX.Element => {
 	const [todoItemList, setTodoList] = useState<TodoItemProps[]>([
-		{
-			title: "タイトル",
-			content: "TODO内容はここに記載します。",
-			status: "Done",
-		},
-		{
-			title: "タイトル2",
-			content: "TODO内容の二番目",
-			status: "Progress",
-		},
-		{
-			title: "タイトル3",
-			content: "TODO内容の3番目",
-			status: "Incomplete",
-		},
+		// {
+		// 	title: "タイトル",
+		// 	content: "TODO内容はここに記載します。",
+		// 	status: "Done",
+		// },
+		// {
+		// 	title: "タイトル2",
+		// 	content: "TODO内容の二番目",
+		// 	status: "Progress",
+		// },
+		// {
+		// 	title: "タイトル3",
+		// 	content: "TODO内容の3番目",
+		// 	status: "Incomplete",
+		// },
 	]);
 
 	// Status型に含まれませんが"All"という全ての状態のTodoを表示するカラムも作る事にします
