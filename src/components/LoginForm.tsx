@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PrismaClient } from '@prisma/client';
 import { error } from 'console';
+import Link from 'next/link';
 
 const prisma = new PrismaClient();
 
@@ -88,16 +89,15 @@ const LoginForm = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">
-                                パスワードをお忘れですか？
-                            </a>
-                        </label>
+                        
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary" onClick={handleButtonClick}>
                             ログイン
                         </button>
+                    </div>
+                    <div className="mt-4 text-sm text-gray-600 text-center">
+                        <Link href="/signup" className="text-gray-600 hover:underline leading-10">新規登録はお済みですか？</Link>
                     </div>
                 </form>
             </div>
