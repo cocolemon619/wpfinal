@@ -16,3 +16,10 @@ model User {
   mail String @unique
   password String
 }
+
+model Todo {
+  id Int @id @default(autoincrement())
+  title String
+  content String
+  status String
+}

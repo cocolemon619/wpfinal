@@ -1,39 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import TodoItem, { TodoItemProps } from "@/components/Todo/TodoItem";
 import TodoForm from "@/components/Todo/TodoForm";
 
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
+
 const TodoListForm = (): JSX.Element => {
-	const [todoItemList, setTodoList] = useState<TodoItemProps[]>([
-		// {
-		// 	title: "タイトル",
-		// 	content: "TODO内容はここに記載します。",
-		// 	status: "Done",
-		// },
-		// {
-		// 	title: "タイトル2",
-		// 	content: "TODO内容の二番目",
-		// 	status: "Progress",
-		// },
-		// {
-		// 	title: "タイトル3",
-		// 	content: "TODO内容の3番目",
-		// 	status: "Incomplete",
-		// },
-	]);
+	const [todoItemList, setTodoList] = useState<TodoItemProps[]>([]);
+	// TodoListForm.tsx などで使用する場所に Status 型を手動で定義
+	type Status = "All" | "Done" | "Progress" | "Incomplete" | "";
 
 	// Status型に含まれませんが"All"という全ての状態のTodoを表示するカラムも作る事にします
-	const [statuses, setStatuses] = useState([
+	const [statuses, setStatuses] = useState<Status[]>([
 		"All",
 		"Incomplete",
 		"Progress",
 		"Done",
 	]);
 
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch('/api/serverTodo'); // バックエンドのエンドポイントにリクエスト
+				const todos = await response.json();
+				setTodoList(todos);
+			} catch (error) {
+				console.error('エラー: TODOの取得に失敗しました', error);
+			}
+		};
+
+		fetchData();
+	}, []);
+
 	const addTodoOnClick = (todo: TodoItemProps) => {
 		// const newTodoList = todoItemList.slice();
 		const newTodoList = [...todoItemList];
-
 		newTodoList.push(todo);
 		setTodoList(newTodoList);
 		console.log("追加");
@@ -49,7 +51,6 @@ const TodoListForm = (): JSX.Element => {
 						// statusが"All"の場合はフィルタリングしない
 						(item) => status === "All" || item.status === status
 					);
-
 					return (
 						<div key={i} className={`flex-1 mx-1 px-4 py-2 rounded-lg bg-gray-200 w-64`}>
 							{/* statusに対応したタグを設置 */}
@@ -75,4 +76,3 @@ const TodoListForm = (): JSX.Element => {
 };
 
 export default TodoListForm;
-

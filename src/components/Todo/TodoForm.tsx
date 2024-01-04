@@ -69,5 +69,3 @@ const TodoForm = (props: TodoFormProps): JSX.Element => {
 };
 
 export default TodoForm;
-
-

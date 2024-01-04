@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 import TodoListForm from "@/components/Todo/TodoListForm";
-import { TodoItemProps } from "@/components/Todo/TodoItem";
 
 //使ってないから下のconst todoItemListはコメントアウトします
 // const todoItemList: TodoItemProps[] = [
