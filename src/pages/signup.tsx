@@ -39,7 +39,7 @@ const SignUp = () => {
             <Header title="SignUp" />
             <div className="flex items-center justify-center min-h-screen bg-base-200">
                 <div className="card w-96 shadow-xl">
-                    <div className="card-body items-center text-center bg-base-100">
+                    <div className="card-body items-center text-center bg-base-100 card">
                         <div className="max-w-md w-full p-6">
                             <form action="#" method="POST" className="space-y-4" onSubmit={handleSignup}>
                                 <div>

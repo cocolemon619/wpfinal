@@ -93,7 +93,7 @@ const LoginForm = () => {
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary" onClick={handleButtonClick}>
-                            ログイン
+                            Log In
                         </button>
                     </div>
                     <div className="mt-4 text-sm text-gray-600 text-center">
