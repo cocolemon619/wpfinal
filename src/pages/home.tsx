@@ -34,12 +34,18 @@ const Home = ({ users }) => {
         return null;
     };
     return (
-        <div>
-            <Header title="HomePage" />
-            {userName && <p>Welcome to {userName}</p>}
-            <QueryTest users={users} />
-            <FV imageUrl="img/kurage.jpg" altText="プログラミング画像" catchphrase="最高のプログラミング教材を提供します！" buttonText="今すぐ始める" />
-            <Footer />
+        <div className="">
+            <div className="">
+                <Header title="HomePage" />
+                {userName && <p>Welcome to {userName}</p>}
+                <div className="h-full">
+                    <QueryTest users={users} />
+                </div>
+                {/* <FV imageUrl="img/kurage.jpg" altText="プログラミング画像" catchphrase="最高のプログラミング教材を提供します！" buttonText="今すぐ始める" /> */}
+                <div className="mt-28">
+                    <Footer />
+                </div>
+            </div>
         </div>
     )
 }

@@ -40,7 +40,7 @@ const Header = ({ title }: HeaderProps) => {
     };
 
     return (
-        <div className="navbar bg-base-100 sticky top-0 z-10">
+        <div className="navbar bg-base-100 sticky top-0 z-10 shadow">
             <div className="flex-1">
                 <a className="btn btn-ghost text-xl">{title}</a>
             </div>
@@ -54,7 +54,7 @@ const Header = ({ title }: HeaderProps) => {
                             </summary>
                             <ul className="p-2 bg-base-100 rounded-t-none">
                                 <li><Link href="/home">HOME</Link></li>
-                                <li><Link href="/todo">ToDo</Link></li>
+                                <li><Link href="/todo">TODO</Link></li>
                                 <li><Link href="/login">LOGIN</Link></li>
                                 <li><button onClick={deleteCookies}>LOGOUT</button></li>
                             </ul>

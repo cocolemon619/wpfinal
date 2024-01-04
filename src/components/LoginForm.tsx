@@ -40,7 +40,7 @@ const LoginForm = () => {
                 document.cookie = `userMail=${user.mail};`;
 
                 // ログイン後のページに遷移
-                // window.location.replace("home")
+                window.location.replace("home");
             }
             console.log("GoodNight!!!")
             console.log(user);
@@ -62,7 +62,7 @@ const LoginForm = () => {
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <form className="card-body">
                     {/* ... (既存のコード) */}
-                    {error && <p className="text-red-500">メールアドレス・パスワードが間違っています</p>} エラーがあれば表示
+                    {error && <p className="text-red-500">メールアドレス・パスワードが間違っています</p>} {/* エラーがあれば表示 */}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">メール</span>
