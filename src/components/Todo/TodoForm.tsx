@@ -7,6 +7,7 @@ type TodoFormProps = {
 
 const TodoForm = (props: TodoFormProps): JSX.Element => {
 	const [formTodo, setFormTodo] = useState<TodoItemProps>({
+		id: null,
 		title: "Hello",
 		content: "World",
 		status: "Incomplete",
@@ -32,6 +33,14 @@ const TodoForm = (props: TodoFormProps): JSX.Element => {
 		setFormTodo(newTodo);
 	};
 
+	const handlerTodoStatusFormOnChange = (
+		event: React.ChangeEvent<HTMLInputElement>
+	) => {
+		const newTodo = { ...formTodo };
+		newTodo.status = event.target.value;
+		setFormTodo(newTodo);
+	};
+
 	return (
 		<div className="w-100 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
 			{/* <p>{formTodo.title}</p> */}{/* formTodoのtitleとcontentをデバッグする用 */}
@@ -46,13 +55,21 @@ const TodoForm = (props: TodoFormProps): JSX.Element => {
 						className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 					/>
 				</div>
-
 				<div className="m-2">
 					<label className="text-gray-400">内容</label>
 					<input
 						type="text"
 						value={formTodo.content}
 						onChange={handlerTodoContentFormOnChange}
+						className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+					/>
+				</div>
+				<div className="m-2">
+					<label className="text-gray-400">進捗</label>
+					<input
+						type="text"
+						value={formTodo.status}
+						onChange={handlerTodoStatusFormOnChange}
 						className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 					/>
 				</div>

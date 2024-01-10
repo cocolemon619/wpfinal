@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 
 import TodoListForm from "@/components/Todo/TodoListForm";
 
+import Link from "next/link";
+
 //使ってないから下のconst todoItemListはコメントアウトします
 // const todoItemList: TodoItemProps[] = [
 // 	{
@@ -26,9 +28,13 @@ import TodoListForm from "@/components/Todo/TodoListForm";
 const todo = () => {
     return (
         <div>
-            <Header title="todo" />
+            <Header title="ToDo" />
+
             <div className="">
-                <div className="my-5">                    
+                <div className="card bg-primary h-10 w-40 text-white flex items-center justify-center">
+                    <button className=""><Link href="./todoEdit">タスクの編集</Link></button>
+                </div>
+                <div className="my-5">
                     <TodoListForm />
                 </div>
             </div>

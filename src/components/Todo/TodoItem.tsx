@@ -7,9 +7,10 @@ import { RiZzzFill } from "react-icons/ri";
 type Status = "Done" | "Progress" | "Incomplete" | "";
 
 export type TodoItemProps = {
+	id: number | null | string;
 	title: string;
 	content: string;
-	status: Status;
+	status: Status | string;
 };
 
 const TodoItem = (props: TodoItemProps): JSX.Element => {
@@ -66,6 +67,7 @@ const TodoItem = (props: TodoItemProps): JSX.Element => {
 			<div className="px-4 py-2 w-80">
 				<div className="mx-3">
 					<div className="flex">
+						<div className="mr-1">{props.id}{props.id && "."}</div>
 						<p className="me-1 mb-0 text-gray-700">{props.title}</p>
 						<span className={`ml-auto font-semibold ${statusClassName.textColor}`}>
 							{statusClassName.text}

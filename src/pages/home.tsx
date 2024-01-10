@@ -34,7 +34,7 @@ const Home = ({ users }) => {
         return null;
     };
     return (
-        <div className="">
+        <div className="dark">
             <div className="">
                 <Header title="HomePage" />
                 {userName && <p>Welcome to {userName}</p>}

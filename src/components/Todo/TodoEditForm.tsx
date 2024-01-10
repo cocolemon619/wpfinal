@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 
 import TodoItem, { TodoItemProps } from "@/components/Todo/TodoItem";
 import TodoForm from "@/components/Todo/TodoForm";
+import EditForm from "./EditForm";
 
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-const TodoListForm = (): JSX.Element => {
+const TodoEditForm = (): JSX.Element => {
 	const [todoItemList, setTodoList] = useState<TodoItemProps[]>([]);
 	// TodoListForm.tsx などで使用する場所に Status 型を手動で定義
 	type Status = "All" | "Done" | "Progress" | "Incomplete" | "";
@@ -22,7 +23,7 @@ const TodoListForm = (): JSX.Element => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch('/api/serverTodo'); // バックエンドのエンドポイントにリクエスト
+				const response = await fetch('/api/todoUpdate'); // バックエンドのエンドポイントにリクエスト
 				const todos = await response.json();
 				setTodoList(todos);
 			} catch (error) {
@@ -33,43 +34,13 @@ const TodoListForm = (): JSX.Element => {
 		fetchData();
 	}, []);
 
-	// const addTodoOnClick = (todo: TodoItemProps) => {
-	// 	// const newTodoList = todoItemList.slice();
-	// 	const newTodoList = [...todoItemList];
-	// 	newTodoList.push(todo);
-	// 	setTodoList(newTodoList);
-	// 	console.log("追加");
-	// };
-	const addTodoOnClick = async (todo: TodoItemProps) => {
-        try {
-            // バックエンドのエンドポイント '/api/todoAdd' にPOSTリクエストを送信
-            const response = await fetch('/api/todoAdd', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    title: todo.title,
-                    content: todo.content,
-                    status: todo.status,
-                }),
-            });
-
-            // レスポンスが正常ならば追加したTodoを取得
-            if (response.ok) {
-                const addedTodo = await response.json();
-
-                // Todoリストを更新
-                setTodoList((prevTodoList) => [...prevTodoList, addedTodo]);
-            } else {
-                // エラーレスポンスの場合、エラーメッセージをコンソールに出力
-                console.error('エラー: TODOの追加に失敗しました', response.status, response.statusText);
-            }
-        } catch (error) {
-            console.error('エラー: TODOの追加に失敗しました', error);
-        }
-    };
-
+	const addTodoOnClick = (todo: TodoItemProps) => {
+		// const newTodoList = todoItemList.slice();
+		const newTodoList = [...todoItemList];
+		newTodoList.push(todo);
+		setTodoList(newTodoList);
+		console.log("追加");
+	};
 
 	return (
 		<>
@@ -95,7 +66,7 @@ const TodoListForm = (): JSX.Element => {
 								</div>
 							))}
 							{/* statusがAllの時だけtTodoFormを設置 */}
-							{status === "All" && <TodoForm addTodoOnclick={addTodoOnClick} />}
+							{status === "All" && <EditForm addTodoOnclick={addTodoOnClick} />}
 						</div>
 					);
 				})}
@@ -105,4 +76,5 @@ const TodoListForm = (): JSX.Element => {
 
 };
 
-export default TodoListForm;
+export default TodoEditForm;
+

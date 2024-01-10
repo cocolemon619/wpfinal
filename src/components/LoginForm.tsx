@@ -23,7 +23,7 @@ const LoginForm = () => {
     const [error, setError] = useState<string | null>(null);
 
     const handleButtonClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
+        // event.preventDefault();
         try {
             const response = await fetch(`/api/server`, {
                 method: 'POST',
@@ -106,4 +106,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
