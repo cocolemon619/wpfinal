@@ -31,11 +31,11 @@ const todo = () => {
             <Header title="ToDo" />
 
             <div className="">
-                <div className="card bg-primary h-10 w-40 text-white flex items-center justify-center">
-                    <button className=""><Link href="./todoEdit">タスクの編集</Link></button>
-                </div>
-                <div className="my-5">
+                <div className="my-3">
                     <TodoListForm />
+                </div>
+                <div className="card bg-primary h-10 w-40 text-white flex items-center justify-center mx-auto mb-3">
+                    <button className=""><Link href="./todoEdit">タスクの編集</Link></button>
                 </div>
             </div>
             <Footer />

@@ -9,6 +9,7 @@ const prisma = new PrismaClient();
 
 const TodoEditForm = (): JSX.Element => {
 	const [todoItemList, setTodoList] = useState<TodoItemProps[]>([]);
+	const [todoData, setTodoData] = useState<TodoItemProps[]>([]);
 	// TodoListForm.tsx などで使用する場所に Status 型を手動で定義
 	type Status = "All" | "Done" | "Progress" | "Incomplete" | "";
 
@@ -23,7 +24,7 @@ const TodoEditForm = (): JSX.Element => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch('/api/todoUpdate'); // バックエンドのエンドポイントにリクエスト
+				const response = await fetch('/api/serverTodo'); // バックエンドのエンドポイントにリクエスト
 				const todos = await response.json();
 				setTodoList(todos);
 			} catch (error) {
@@ -77,4 +78,3 @@ const TodoEditForm = (): JSX.Element => {
 };
 
 export default TodoEditForm;
-
