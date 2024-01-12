@@ -21,7 +21,7 @@ const Users = ({ users }) => {
                 ))}
             </ul> */}
             {users.map((user) => (
-                <ul className='menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box w-64 m-1'>
+                <ul className='menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box w-64 m-1 shadow'>
                     <li key={user.id}>
                         <p>ID: {user.id}</p>
                         <p>ユーザー名: {user.name}</p>

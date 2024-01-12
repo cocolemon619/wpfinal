@@ -33,11 +33,14 @@ const Home = ({ users }) => {
         }
         return null;
     };
+
     return (
-        <div className="dark">
+        <div className="">
             <div className="">
                 <Header title="HomePage" />
-                {userName && <p>Welcome to {userName}</p>}
+                <div className="card bg-base-200 w-40 mx-auto text-center mt-4 text-xl font-bold">
+                    {userName && <p>Welcome to <br />{userName}</p>}
+                </div>
                 <div className="h-full">
                     <QueryTest users={users} />
                 </div>

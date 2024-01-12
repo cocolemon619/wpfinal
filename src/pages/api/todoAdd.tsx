@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (req.method === 'POST') {
-        const { id, title, content, status } = req.body;
+        const { id, title, content, status, assign } = req.body;
 
         try {
             const todo = await prisma.todo.create({
@@ -16,6 +16,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     title,
                     content,
                     status,
+                    assign,
                 },
             });
 

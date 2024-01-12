@@ -40,7 +40,7 @@ const Header = ({ title }: HeaderProps) => {
     };
 
     return (
-        <div className="navbar bg-base-100 sticky top-0 z-10 shadow">
+        <div className="navbar bg-base-100 sticky top-0 z-10 shadow ">
             <div className="flex-1">
                 <a className="btn btn-ghost text-xl">{title}</a>
             </div>

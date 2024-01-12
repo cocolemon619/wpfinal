@@ -33,13 +33,6 @@ const TodoListForm = (): JSX.Element => {
 		fetchData();
 	}, []);
 
-	// const addTodoOnClick = (todo: TodoItemProps) => {
-	// 	// const newTodoList = todoItemList.slice();
-	// 	const newTodoList = [...todoItemList];
-	// 	newTodoList.push(todo);
-	// 	setTodoList(newTodoList);
-	// 	console.log("追加");
-	// };
 	const addTodoOnClick = async (todo: TodoItemProps) => {
         try {
             // バックエンドのエンドポイント '/api/todoAdd' にPOSTリクエストを送信
@@ -52,6 +45,7 @@ const TodoListForm = (): JSX.Element => {
                     title: todo.title,
                     content: todo.content,
                     status: todo.status,
+					assign:userName,
                 }),
             });
 
@@ -70,6 +64,26 @@ const TodoListForm = (): JSX.Element => {
         }
     };
 
+	const [userName, setUserName] = useState<string | null>(null);
+
+
+	useEffect(() => {
+        // Cookie から userName を取得
+        const userNameFromCookie = getCookie("userName");
+        setUserName(userNameFromCookie);
+    }, []);
+
+    // Cookie から指定した名前の値を取得する関数
+    const getCookie = (name) => {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            const [cookieName, cookieValue] = cookie.split('=');
+            if (cookieName.trim() === name) {
+                return cookieValue;
+            }
+        }
+        return null;
+    };
 
 	return (
 		<>

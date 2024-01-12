@@ -24,7 +24,7 @@ const SignUp = () => {
 
             if (response.ok) {
                 console.log('ユーザーが登録されました');
-                window.location.replace("home")
+                window.location.replace("login")
             } else {
                 console.error('ユーザーの登録に失敗しました');
             }
@@ -43,12 +43,21 @@ const SignUp = () => {
                         <div className="max-w-md w-full p-6">
                             <form action="#" method="POST" className="space-y-4" onSubmit={handleSignup}>
                                 <div>
+                                    <label className="label">
+                                        <span className="label-text">ユーザーネーム</span>
+                                    </label>
                                     <input type="text" required id="name" placeholder="name" className="input input-bordered w-full max-w-xs" value={name} onChange={(e) => setUsername(e.target.value)} />
                                 </div>
                                 <div>
+                                    <label className="label">
+                                        <span className="label-text">メール</span>
+                                    </label>
                                     <input type="text" required id="mail" placeholder="email" className="input input-bordered w-full max-w-xs" value={mail} onChange={(e) => setMail(e.target.value)} />
                                 </div>
                                 <div>
+                                    <label className="label">
+                                        <span className="label-text">パスワード</span>
+                                    </label>
                                     <input type="password" required id="password" placeholder="password" className="input input-bordered w-full max-w-xs" value={password} onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 <div>

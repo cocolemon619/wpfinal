@@ -22,4 +22,5 @@ model Todo {
   title String
   content String
   status String
+  assign String @default("user.id")
 }

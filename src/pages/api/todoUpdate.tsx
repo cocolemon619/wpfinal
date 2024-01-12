@@ -10,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
 
-    const { id, title, content, status } = req.body;
+    const { id, title, content, status, assign } = req.body;
 
     try {
         const updatedTodo = await prisma.todo.update({
@@ -19,6 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 title,
                 content,
                 status,
+                assign
             },
         });
 

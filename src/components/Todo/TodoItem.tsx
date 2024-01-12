@@ -11,6 +11,7 @@ export type TodoItemProps = {
 	title: string;
 	content: string;
 	status: Status | string;
+	assign: string;
 };
 
 const TodoItem = (props: TodoItemProps): JSX.Element => {
@@ -58,7 +59,7 @@ const TodoItem = (props: TodoItemProps): JSX.Element => {
 	}
 
 	return (
-		<div className="flex w-full border border-gray-300 max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+		<div className="flex w-full border border-gray-300 max-w-sm overflow-hidden mb-1 bg-white rounded-lg shadow dark:bg-gray-800">
 			<div
 				className={`flex items-center justify-center w-12 ${statusClassName.bgColor}`}>
 				{statusValues.iconDom}
@@ -75,6 +76,12 @@ const TodoItem = (props: TodoItemProps): JSX.Element => {
 					</div>
 					<span className="text-sm text-gray-600 dark:text-gray-200 me-1">
 						{props.content}
+					</span>
+
+				</div>
+				<div className="px-3">
+					<span className="text-sm text-gray-600 dark:text-gray-200 me-1">
+						{props.assign}
 					</span>
 				</div>
 			</div>

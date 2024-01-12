@@ -9,7 +9,8 @@ const prisma = new PrismaClient();
 
 const TodoEditForm = (): JSX.Element => {
 	const [todoItemList, setTodoList] = useState<TodoItemProps[]>([]);
-	const [todoData, setTodoData] = useState<TodoItemProps[]>([]);
+	// const [todoData, setTodoData] = useState<TodoItemProps[]>([]);
+	
 	// TodoListForm.tsx などで使用する場所に Status 型を手動で定義
 	type Status = "All" | "Done" | "Progress" | "Incomplete" | "";
 

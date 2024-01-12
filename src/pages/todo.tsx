@@ -34,8 +34,8 @@ const todo = () => {
                 <div className="my-3">
                     <TodoListForm />
                 </div>
-                <div className="card bg-primary h-10 w-40 text-white flex items-center justify-center mx-auto mb-3">
-                    <button className=""><Link href="./todoEdit">タスクの編集</Link></button>
+                <div className="card bg-primary h-10 w-40 text-white flex items-center justify-center mx-auto mb-3 shadow-md font-semibold hover:bg-indigo-700">
+                    <button className=""><Link href="./todoEdit">編集画面</Link></button>
                 </div>
             </div>
             <Footer />
