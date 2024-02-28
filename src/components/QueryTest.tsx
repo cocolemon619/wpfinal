@@ -26,7 +26,7 @@ const Users = ({ users }) => {
                         <p>ID: {user.id}</p>
                         <p>ユーザー名: {user.name}</p>
                         <p>メールアドレス: {user.mail}</p>
-                        <p>パスワード: {user.password}</p>
+                        {/* <p>パスワード: {user.password}</p> */}
                     </li>
                 </ul>
             ))}
