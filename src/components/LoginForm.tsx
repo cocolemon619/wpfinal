@@ -34,7 +34,7 @@ const LoginForm = () => {
             });
             const user = await response.json();
             setResult(user);
-            if (user.id) {
+            if (user) {
                 // ユーザー情報をcookieに保存
                 document.cookie = `userId=${user.id};`;
                 document.cookie = `userName=${user.name};`;
