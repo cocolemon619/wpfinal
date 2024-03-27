@@ -114,46 +114,43 @@ const TodoListForm = (): JSX.Element => {
 	};
 
 	return (
-		<>
-			{/* colsはstatusesに設定した状態の数に合わせる */}
-			<div className={`flex`}>
-				{statuses.map((status, i) => {
-					// filterを使用してTodoListの状態に応じてフィルタリングする
-					const filteredTodoList = todoItemList.filter(
-						// statusが"All"の場合はフィルタリングしない
-						(item) => status === "All" || item.status === status
-					);
-					return (
-						<div>
-							<div key={i} className="flex-1 mx-1 px-4 py-2 rounded-lg bg-gray-200 w-64">
-								<span className="inline-flex items-center py-1.5 px-3 mb-1 rounded-full text-xs font-medium bg-gray-500 text-white todo-item">
-									{status}
-								</span>
+        <>
+            {/* colsはstatusesに設定した状態の数に合わせる */}
+            <div className={`flex`}>
+                {statuses.map((status, i) => {
+                    const filteredTodoList = todoItemList.filter(
+                        // statusが"All"の場合はフィルタリングしない
+                        (item) => status === "All" || item.status === status
+                    );
+                    return (
+                        <div key={i}>
+                            <div className="flex-1 mx-1 px-4 py-2 rounded-lg bg-gray-200 w-64">
+                                <span className="inline-flex items-center py-1.5 px-3 mb-1 rounded-full text-xs font-medium bg-gray-500 text-white todo-item">
+                                    {status}
+                                </span>
 
-								<DndContext
-									sensors={sensors}
-									collisionDetection={closestCenter}
-									onDragEnd={handleDragEnd}
-									key={i}>
-									<SortableContext
-										items={todoItemList}
-										strategy={verticalListSortingStrategy}>
-										{filteredTodoList.map((todo, j) => (
-											<div key={j}>
-												<TodoItem key={todo.id} {...todo} />
-											</div>
-										))}
-									</SortableContext>
-								</DndContext>
-								{status === "All" && <TodoForm addTodoOnclick={addTodoOnClick} />}
-							</div>
-						</div>
-					);
-				})}
-			</div>
-		</>
-	)
-
+                                <DndContext
+                                    sensors={sensors}
+                                    collisionDetection={closestCenter}
+                                    onDragEnd={handleDragEnd}>
+                                    <SortableContext
+                                        items={todoItemList}
+                                        strategy={verticalListSortingStrategy}>
+                                        {filteredTodoList.map((todo, j) => (
+                                            <div key={j}>
+                                                <TodoItem key={todo.id} {...todo} />
+                                            </div>
+                                        ))}
+                                    </SortableContext>
+                                </DndContext>
+                                {status === "All" && <TodoForm addTodoOnclick={addTodoOnClick} />}
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+        </>
+    );
 };
 
 export default TodoListForm;
