@@ -12,7 +12,7 @@ const Start = () => {
       <Header title="TOP" />
       <div className="bg-base-200 pt-5">
         <div className="mx-10 h-40 px-10 pt-5 bg-cyan-300 card">
-          <h1 className="text-3xl font-bold text-cyan-950">Let's make issue management easier!</h1>
+          <h1 className="text-3xl font-bold text-cyan-950">Let&apos;s make issue management easier!</h1>
           <h2 className="text-2xl font-bold mt-3 text-cyan-950">課題管理を楽にしよう！</h2>
         </div>
         
