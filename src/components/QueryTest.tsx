@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 const Users = ({ users }) => {
     return (
         <div>
-            <h1>ユーザーリスト</h1>
+            <h1>ユーザーリスト!</h1>
             {users.map((user) => (
                 <ul key={user.id} className='menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box w-64 m-1 shadow'>
                     <li>
