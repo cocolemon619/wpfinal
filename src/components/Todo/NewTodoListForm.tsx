@@ -24,30 +24,35 @@ const TodoListForm = (): JSX.Element => {
 			title: "タイトル",
 			content: "TODO内容はここに記載します。",
 			status: "Done",
+			assign: "",
 		},
 		{
 			id: 2,
 			title: "タイトル2",
 			content: "TODO内容の二番目",
 			status: "Progress",
+			assign: "",
 		},
 		{
 			id: 3,
 			title: "タイトル3",
 			content: "TODO内容の3番目",
 			status: "Incomplete",
+			assign: "",
 		},
 		{
 			id: 4,
 			title: "4番目",
 			content: "差し込みIncomplete",
 			status: "Incomplete",
+			assign: "",
 		},
 		{
 			id: 5,
 			title: "5番目のTODO",
 			content: "TODO内容の4番目はDONE",
 			status: "Done",
+			assign: "",
 		},
 	]);
 	const [statuses, setStatuses] = useState([
@@ -78,13 +83,35 @@ const TodoListForm = (): JSX.Element => {
 			setTodoList(arrayMove(todoItemList, oldIndex, newIndex));
 		}
 	};
-	const addTodoOnClick = (todo: Todo) => {
-		const newTodoList = [...todoItemList];
-
-		todo.id = newTodoList.length + 1;
-		newTodoList.push(todo);
-		setTodoList(newTodoList);
-		console.log("追加");
+	const addTodoOnClick = async (todo: Todo) => {
+		try {
+			// バックエンドのエンドポイント '/api/todoAdd' にPOSTリクエストを送信
+			const response = await fetch('/api/todoAdd', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					title: todo.title,
+					content: todo.content,
+					status: todo.status,
+					assign: "",
+				}),
+			});
+	
+			// レスポンスが正常ならば追加したTodoを取得
+			if (response.ok) {
+				const addedTodo = await response.json();
+	
+				// Todoリストを更新
+				setTodoList((prevTodoList) => [...prevTodoList, addedTodo]);
+			} else {
+				// エラーレスポンスの場合、エラーメッセージをコンソールに出力
+				console.error('エラー: TODOの追加に失敗しました', response.status, response.statusText);
+			}
+		} catch (error) {
+			console.error('エラー: TODOの追加に失敗しました', error);
+		}
 	};
 
 	return (

@@ -10,6 +10,7 @@ export type Todo = {
     title: string;
     content: string;
     status: Status;
+    assign: string;
 };
 type TodoItemProps = {
     todo: Todo;
